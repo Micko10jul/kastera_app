@@ -1,0 +1,45 @@
+name: kastera
+description: Aplikasi kas kelurahan KASTERA
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  page_transition: ^2.2.1
+  supabase_flutter: ^2.12.2
+  intl: ^0.20.2
+  fl_chart: ^0.69.2
+  image_picker: ^1.2.1
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.4
+
+# Konfigurasi Ikon Aplikasi
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/LogoApp.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/LogoApp.png"
+  min_sdk_android: 21
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/coin.png
+    - assets/logo.png
+    - assets/logo1.png 
+    - assets/LogoApp.png
