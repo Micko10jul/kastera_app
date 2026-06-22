@@ -48,17 +48,6 @@ CREATE TABLE public.transaksi_kas (
   CONSTRAINT transaksi_kas_kelurahan_id_fkey FOREIGN KEY (kelurahan_id) REFERENCES auth.users(id)
 );
 
--- ==========================================
--- SCRIPT PERBAIKAN FITUR HAPUS & EDIT
--- (Jalankan ini di Supabase SQL Editor!)
--- ==========================================
--- Masalah "sudah diklik hapus tapi masih ada" terjadi karena 
--- Row Level Security (RLS) bawaan Supabase memblokir aksi DELETE/UPDATE 
--- jika Policy-nya belum dibuat!
 
--- Opsi 1: MATIKAN RLS SEMENTARA (Paling Gampang & Langsung Berhasil)
 ALTER TABLE public.transaksi_kas DISABLE ROW LEVEL SECURITY;
 
--- Opsi 2: JIKA RLS HARUS AKTIF, buatkan izin (policy) Hapus & Edit:
--- CREATE POLICY "Izinkan Hapus" ON public.transaksi_kas FOR DELETE USING (auth.uid() = kelurahan_id);
--- CREATE POLICY "Izinkan Edit" ON public.transaksi_kas FOR UPDATE USING (auth.uid() = kelurahan_id);
